@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Foodly - Indian Food Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+</head>
+
+<body>
+
+    <header>
+        <h1>🍴 Foodly</h1>
+        <nav>
+            <button onclick="showPage('homePage')">Home</button>
+            <button onclick="showPage('cartPage')">Cart (<span id="cartCount">0</span>)</button>
+            <button onclick="showPage('loginPage')">Login</button>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <div class="banner-text">
+            <h1>Foodly </h1>
+            <p>---Your One Stop Site for your All <span>TASTE's</span></p>
+        </div>
+    </div>
+
+    <div id="homePage" class="container">
+        <h2>Popular Foods</h2>
+        <div class="grid" id="foodList"></div>
+        <br>
+        <h2>Restaurants</h2>
+        <div class="grid">
+            <div class="card" onclick="loadRestaurant('Paradise')">
+                <div class="card-content">
+                    <h3>Paradise</h3>
+                    <p>Distance : 9-10Km,</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.5 (1200+)</span>
+                    </div>
+                    <div class="description">
+                        Famous for authentic Hyderabadi biryani and kebabs. A must-visit for biryani lovers!
+                    </div>
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq51YN8mWOjCqLf888sIvPReUNWP4Umzk5w&s" alt="Paradise restaurant">
+            </div>
+            <div class="card" onclick="loadRestaurant('Burger King')">
+                <div class="card-content">
+                    <h3>Burger King</h3>
+                    <p>Distance : 9-10Km,</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>4.0 (800+)</span>
+                    </div>
+                    <div class="description">
+                        Home of the Whopper! Enjoy flame-grilled burgers, fries, and refreshing beverages.
+                    </div>
+                </div>
+                <img src="https://cdn.prod.website-files.com/5ee732bebd9839b494ff27cd/5ef0a3d4299cb9f4f7ea67c4_Burger-King-Logo.png" alt="Burger King restaurant">
+            </div>
+            <div class="card" onclick="loadRestaurant('Biryani House')">
+                <div class="card-content">
+                    <h3>Biryani House</h3>
+                    <p>Distance : 9-10Km,</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>4.8 (1500+)</span>
+                    </div>
+                    <div class="description">
+                        Specializing in aromatic biryanis with authentic spices and traditional cooking methods.
+                    </div>
+                </div>
+                <img src="https://static.vecteezy.com/system/resources/previews/016/385/126/non_2x/biryani-logo-template-suitable-for-restaurant-food-truck-and-cafe-vector.jpg" alt="Biryani House restaurant">
+            </div>
+            <div class="card" onclick="loadRestaurant('Olive Tree')">
+                <div class="card-content">
+                    <h3>Olive Tree</h3>
+                    <p>Distance : 9-10Km,</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.6 (950+)</span>
+                    </div>
+                    <div class="description">
+                        Fine dining experience with Mediterranean cuisine, perfect for special occasions.
+                    </div>
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGGEWrRaCJbPIB8Ex9CnyjOWMX8WibcWRtDw&s" alt="Olive Tree restaurant">
+            </div>
+            <div class="card" onclick="loadRestaurant('Pizza Hut')">
+                <div class="card-content">
+                    <h3>Pizza Hut</h3>
+                    <p>Distance : 9-10Km,</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>4.2 (1100+)</span>
+                    </div>
+                    <div class="description">
+                        World-famous pan pizzas, pasta, and sides. No one outpizzas the Hut!
+                    </div>
+                </div>
+                <img src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:0,cw:929,ch:523,q:80,w:929/noEAZd32aW8WYrvzvuzgvP.jpg" alt="Pizza Hut restaurant">
+            </div>
+            <div class="card" onclick="loadRestaurant('BB Queue')">
+                <div class="card-content">
+                    <h3>BB Queue</h3>
+                    <p>Distance : 9-10Km,</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.4 (700+)</span>
+                    </div>
+                    <div class="description">
+                        Best barbecue in town with smoky flavors and tender meats cooked to perfection.
+                    </div>
+                </div>
+                <img src="https://content.jdmagicbox.com/comp/udupi/s2/0820px820.x820.230420095427.m7s2/catalogue/white-rock-udupi-restaurants-l7s0ypd5vt-250.jpg" alt="BB Queue restaurant">
+            </div>
+        </div>
+    </div>
+
+    <div id="cartPage" class="container" style="display:none;">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <h3>Total: ₹<span id="totalAmount">0</span></h3>
+        <button class="btn" onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <div id="loginPage" class="container" style="display:none;">
+        <h2>Login</h2>
+        <form onsubmit="return checkLogin()">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button class="btn" type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Email Confirmation Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Order Confirmation</h2>
+            <p>Your order has been placed successfully! A confirmation email has been sent to your registered email address.</p>
+
+            <div class="email-preview">
+                <div class="email-header">
+                    <h3>Foodly Order Confirmation</h3>
+                    <p><strong>Order ID:</strong> <span id="orderId">FL-2025-001</span></p>
+                    <p><strong>Date:</strong> <span id="orderDate"></span></p>
+                </div>
+
+                <p>Dear <span id="customerName">Customer</span>,</p>
+                <p>Thank you for your order with Foodly! Here are your order details:</p>
+
+                <div class="order-items" id="emailOrderItems">
+                    <!-- Order items will be populated here -->
+                </div>
+
+                <div class="order-total">
+                    Total Amount: ₹<span id="emailTotalAmount">0</span>
+                </div>
+
+                <p>Your order will be delivered within 30-45 minutes.</p>
+
+                <div class="email-footer">
+                    <p>Thank you for choosing Foodly!</p>
+                    <p>For any queries, contact us at support@foodly.in or call +91 98765 43210</p>
+                </div>
+            </div>
+
+            <button class="btn" onclick="closeModal()" style="width: 100%; margin-top: 20px;">Continue Shopping</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="creators-section">
+                <h4>Created by</h4>
+                <div class="creators">
+                    <span>Tulasi Ram</span>
+                    <span>Praveen</span>
+                    <span>Rishi</span>
+                </div>
+            </div>
+
+            <div class="description-section" style="margin-top:12px;">
+                <p>
+                    Welcome to QuickBite — your go-to food delivery platform connecting
+                    you with delicious meals from your favorite local restaurants across
+                    India. We strive to bring fresh, tasty food right to your doorstep
+                    quickly and safely.
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <p><strong>Contact Us:</strong></p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Email: support@quickbite.in</p>
+                <p>Address: 123 Food Street, Bengaluru, Karnataka, India</p>
+            </div>
+        </div>
+
+        <p class="copyright">
+            &copy; 2025 QuickBite. All rights reserved.
+        </p>
+    </footer>
